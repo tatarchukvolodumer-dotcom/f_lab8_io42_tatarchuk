@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ООГП — Головна сторінка</title>
+  <meta name="description" content="Організація Об'єднаних Гільдій Пригодників">
+
+  <!-- Шрифт (необов'язково; без інтернету спрацює запасний) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== ВЕРХНЯ СМУГА ===== -->
+  <div class="guild-bar">
+    <div class="wrap guild-bar__inner">
+      <div class="guild-bar__info">
+        <span>Виконав ІО-42 Татарчук: @Valdmarus</span>
+        <span>
+          <img class="guild-bar__mail" src="img/icon-sealed-letter.svg" alt="" width="18" height="18">
+          <a href="mailto:tatarchuk.volodymyr_io42@edu.kpi.ua">tatarchuk.volodymyr_io42@edu.kpi.ua</a>
+        </span>
+      </div>
+      <div class="guild-social">
+        <a href="#" aria-label="Кришталева куля"><img src="img/icon-crystal-ball.svg" alt="" width="18" height="18"></a>
+        <a href="#" aria-label="Ворон-листоноша"><img src="img/icon-raven.svg" alt="" width="18" height="18"></a>
+        <a href="#" aria-label="Пентаграма"><img src="img/icon-pentagram.svg" alt="" width="18" height="18"></a>
+        <a href="#" aria-label="Привид"><img src="img/icon-ghost.svg" alt="" width="18" height="18"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ЗАЛ ГІЛЬДІЇ (банер) зі шапкою поверх фото ===== -->
+  <section class="hall">
+
+    <img class="fill-img hall__bg" src="img/hero-guild-hall.jpeg" alt="Зал гільдії: пригодники біля дошки замовлень і в таверні" fetchpriority="high">
+
+    <header class="guild-header">
+      <div class="wrap guild-header__inner">
+        <a href="#" class="guild-logo" aria-label="ООГП — Організація Об'єднаних Гільдій Пригодників">
+          <span class="guild-logo__white">Організація Об'єднаних</span>
+          <span class="guild-logo__gold">Гільдій Пригодників</span>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Відкрити меню">
+        <label for="menu-toggle" class="guild-burger" aria-hidden="true"></label>
+
+        <nav class="guild-nav" aria-label="Головне меню">
+          <ul>
+            <li><a href="#" class="is-active">Головна</a></li>
+            <li><a href="#quests">Послуги</a></li>
+            <li><a href="#">Дошка завдань</a></li>
+            <li><a href="#">Бестіарій</a></li>
+            <li><a href="#">Таверна</a></li>
+            <li><a href="#squads">Загони</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap hall__wrap">
+      <div class="hall__content">
+        <span class="hall__eyebrow">Найманці, шукачі скарбів і розв'язувачі проблем</span>
+        <h1>Ми зробимо брудну роботу, щоб вам не довелося</h1>
+        <a href="#summons" class="guild-btn guild-btn--blue guild-btn--sm">Створити квест</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ===== ФОРМА ВИКЛИКУ ЗАГОНУ ===== -->
+    <section class="summons" id="summons">
+      <div class="wrap">
+        <form class="summons__form" action="#" method="post">
+          <label class="summons__field">
+            <span>Ім'я</span>
+            <input type="text" name="name" placeholder="Ваше ім'я або прізвисько">
+          </label>
+          <label class="summons__field">
+            <span>Спосіб зв'язку</span>
+            <input type="tel" name="contact" placeholder="Телефон або поштовий ворон">
+          </label>
+          <label class="summons__field">
+            <span>Тип замовлення</span>
+            <select name="quest">
+              <option value="">Оберіть послугу</option>
+              <option>Зачистка підземелля</option>
+              <option>Знищення монстрів</option>
+              <option>Захист та ескорт</option>
+              <option>Розвідка</option>
+              <option>Магічні катавасії</option>
+              <option>Різні послуги</option>
+            </select>
+          </label>
+          <label class="summons__field">
+            <span>Загін</span>
+            <select name="squad">
+              <option value="">Оберіть загін</option>
+              <option>Vox Machina</option>
+              <option>Компаньйони Залу</option>
+              <option>Братство Кільця</option>
+            </select>
+          </label>
+          <button type="submit" class="summons__btn">Подати заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== ПРО ГІЛЬДІЮ ===== -->
+    <section class="guild-about">
+
+      <div class="guild-about__media">
+        <img class="fill-img" src="img/about-dungeon-battle.jpeg" alt="Загін пригодників б'ється зі скелетами та гоблінами в зеленому підземеллі" loading="lazy" decoding="async">
+
+        <div class="guild-about__boxes">
+          <div class="guild-hours">
+            <h3>Години роботи реєстратури</h3>
+            <strong>Робочі години:</strong>
+            <p>Понеділок – п'ятниця: від світанку до заходу</p>
+            <p>Субота: з 10:00 до останнього тосту</p>
+            <strong>Вихідні:</strong>
+            <p>Щонеділі — гільдії на відпочинку</p>
+            <p>Усі офіційні свята Королівства</p>
+			<strong>Найняті пригодники працють за узгодженим графіком</strong>
+          </div>
+          <div class="dragon-alert">
+            <strong>Дракон на подвір'ї?</strong>
+            <span class="dragon-alert__phone">ЕКСТРЕНІ ВИКЛИКИ ОПРАЦЬОВУЮТЬСЯ ЦІЛОДОБОВО!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="guild-about__content">
+        <div class="guild-about__text">
+          <span class="rune-label">Ласкаво просимо до ООГП</span>
+          <h2>Зробимо ваші землі безпечнішими, ніж будь-коли</h2>
+          <p>Організація Об'єднаних Гільдій Пригодників — це союз гільдій пригодників по всьому світу, які беруться за будь-яку справу: від зачистки підвалів до супроводу караванів крізь Темний ліс. Ми працюємо ще з часів Другої Ери і досі не втратили жодного замовника — принаймні такого, якого можна було врятувати)</p>
+          <p>Кожне замовлення ми віддаємо тому загону, що підходить саме вам: героям, найманцям або просто міцним хлопцям із мотузкою. Оплата — у грошовому еквіваленті або за домовленістю.</p>
+        </div>
+
+        <div class="guild-stats">
+          <div class="guild-stat"><strong>712</strong><span>років досвіду</span></div>
+          <div class="guild-stat"><strong>17 894</strong><span>задоволених замовників</span></div>
+          <div class="guild-stat"><strong>658</strong><span>зачищених підземель</span></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== ПОСЛУГИ (КВЕСТИ) ===== -->
+    <section class="guild-section" id="quests">
+      <div class="wrap">
+        <div class="section-title">
+          <span class="rune-label">Послуги</span>
+          <h2>Що ми вміємо</h2>
+        </div>
+
+        <div class="quests">
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-dungeon-door.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Зачистка підземелля</h3>
+              <p>Підвали, катакомби, покинуті шахти. Заходимо першими, виходимо останніми, а виносимо все, що рухалося, і трохи того, що не рухалося.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-monster-hunt.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Знищення монстрів</h3>
+              <p>Гобліни, скелети й великі щури у підвалі вашої таверни — для нас це звичайний вівторок. Ціноутверення відбувається за утвердженим бестіарієм.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-escort-shield.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Захист та ескорт</h3>
+              <p>Проведемо караван, обоз чи вашу тітку через ядовиті болота. Охороняємо дороги, таверни та свята, особливо якщо тамада — підозрілий.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-scout-map.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Розвідка</h3>
+              <p>Мапи, шпигуни, огляд місцевості. Дізнаємося, що чекає за наступним поворотом, ще до того, як ви в нього завернете.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-magic-swirl.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Магічні катавасії</h3>
+              <p>Розгребемо те, що залишив ваш маг: незрозумілі зілля, ожилі меблі, дивне світіння в льосі. Питання «що це було?» не ставимо — просто прибираємо.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+          <article class="quest">
+            <span class="quest__icon"><img src="img/icon-odd-jobs-broom.svg" alt="" width="40" height="40" loading="lazy"></span>
+            <div>
+              <h3>Різні послуги</h3>
+              <p>Принести, віднести, полагодити, почухати. Дах, пральня чи драконяче яйце, що не влізає в комору — беремося за все, якщо є платня.</p>
+              <a href="#" class="quest__more">Докладніше</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЗАГОНИ (КОМАНДА) ===== -->
+    <section class="squads" id="squads">
+      <div class="wrap squads__layout">
+
+        <div class="squads__intro">
+          <span class="rune-label">Загони</span>
+          <h2>Пригодники тижня</h2>
+          <p>Перевірені команди, що пройшли вогонь, воду і древнє зло. Кожен загін має власний стиль і роки досвіду(іноді століть).</p>
+          <a href="#" class="guild-btn guild-btn--gold guild-btn--sm">Усі загони</a>
+        </div>
+
+        <div class="squads__list">
+
+          <article class="squad">
+            <div class="squad__portrait">
+              <img class="fill-img" src="img/squad-vox-machina.jpeg" alt="Загін Vox Machina на тлі вогняного демона" loading="lazy" decoding="async">
+            </div>
+            <div class="squad__plate">
+              <h3>Vox Machina</h3>
+              <span class="squad__role">Експерти драконоборці?</span>
+              <div class="guild-social guild-social--plate">
+                <a href="#" aria-label="Кришталева куля"><img src="img/icon-crystal-ball.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Ворон-листоноша"><img src="img/icon-raven.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Пентаграма"><img src="img/icon-pentagram.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Привид"><img src="img/icon-ghost.svg" alt="" width="18" height="18"></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="squad">
+            <div class="squad__portrait">
+              <img class="fill-img" src="img/squad-companions-of-the-hall.jpeg" alt="Компаньйони Залу: дворф, темний ельф, напівросліки, воїтелька з луком і пантера" loading="lazy" decoding="async">
+            </div>
+            <div class="squad__plate">
+              <h3>Компаньйони Залу</h3>
+              <span class="squad__role">Спеціалісти широкого направлення</span>
+              <div class="guild-social guild-social--plate">
+                <a href="#" aria-label="Кришталева куля"><img src="img/icon-crystal-ball.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Ворон-листоноша"><img src="img/icon-raven.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Пентаграма"><img src="img/icon-pentagram.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Привид"><img src="img/icon-ghost.svg" alt="" width="18" height="18"></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="squad">
+            <div class="squad__portrait">
+              <img class="fill-img" src="img/squad-fellowship.jpeg" alt="Братство Кільця: чарівник, ельф, гном, люди та гобіти" loading="lazy" decoding="async">
+            </div>
+            <div class="squad__plate">
+              <h3>Братство Кільця</h3>
+              <span class="squad__role">Професійні кур'єри</span>
+              <div class="guild-social guild-social--plate">
+                <a href="#" aria-label="Кришталева куля"><img src="img/icon-crystal-ball.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Ворон-листоноша"><img src="img/icon-raven.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Пентаграма"><img src="img/icon-pentagram.svg" alt="" width="18" height="18"></a>
+                <a href="#" aria-label="Привид"><img src="img/icon-ghost.svg" alt="" width="18" height="18"></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

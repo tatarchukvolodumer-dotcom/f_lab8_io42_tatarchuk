@@ -1,0 +1,519 @@
+/* ==========================================================
+   ООГП — Організація Об'єднаних Гільдій Пригодників
+   Кольори, ширина контейнера та шрифт — у :root
+   ========================================================== */
+
+:root {
+  --guild-blue: #2d9bf0;
+  --guild-gold: #f8e71c;
+  --guild-ink: #1f2b3a;
+  --guild-text: #8a919c;
+  --mist: #f3f5f8;
+  --line: #e6e9ee;
+  --parchment: #f4ecd8;
+  --wrap-width: 1140px;
+  --font: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Скидання ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--guild-text);
+  background: #fff;
+}
+
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 { color: var(--guild-ink); line-height: 1.25; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 400; }
+h3 { font-size: 14px; font-weight: 700; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Зображення, що заповнює свій блок */
+.fill-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Загальні елементи ---------- */
+.rune-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--guild-blue);
+}
+
+.guild-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 0;
+  font: 700 12px/1 var(--font);
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.guild-btn--sm { padding: 12px 20px; font-size: 10px; }
+
+.guild-btn--blue { background: var(--guild-blue); color: #fff; }
+.guild-btn--blue:hover { background: var(--guild-gold); color: var(--guild-ink); }
+
+.guild-btn--gold { background: var(--guild-gold); color: var(--guild-ink); }
+.guild-btn--gold:hover { background: var(--guild-blue); color: #fff; }
+
+.guild-section { padding: 90px 0; }
+
+.section-title {
+  max-width: 640px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+/* Соцмережі-іконки: кремове коло під кольоровою іконкою */
+.guild-social { display: flex; align-items: center; gap: 8px; }
+.guild-social a {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--parchment);
+  transition: transform .2s;
+}
+.guild-social a:hover { transform: translateY(-2px); }
+.guild-social img { width: 18px; height: 18px; }
+
+/* ==========================================================
+   ВЕРХНЯ СМУГА
+   ========================================================== */
+.guild-bar {
+  background: var(--guild-blue);
+  color: #fff;
+  font-size: 12px;
+}
+.guild-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  min-height: 40px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.guild-bar__info { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 26px; }
+.guild-bar__info span { display: inline-flex; align-items: center; gap: 8px; }
+.guild-bar__mail { width: 18px; height: 18px; }
+
+/* ==========================================================
+   ЗАЛ ГІЛЬДІЇ (банер) + ШАПКА
+   ========================================================== */
+.hall {
+  position: relative;
+  height: clamp(460px, 46vw, 620px);
+  background: var(--guild-ink);
+}
+.hall__bg {
+  position: absolute;
+  inset: 0;
+  object-position: 55% center;
+}
+.hall::before {                    /* затемнення для читабельності тексту */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, .1) 60%, rgba(0, 0, 0, .45));
+  pointer-events: none;
+}
+
+.guild-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 16px 0;
+}
+.guild-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Логотип у два рядки: біла частина + жовта частина, усе капсом */
+.guild-logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.guild-logo__white { color: #fff; }
+.guild-logo__gold { color: var(--guild-gold); }
+
+.guild-nav ul { display: flex; gap: 26px; }
+.guild-nav a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  transition: color .2s;
+}
+.guild-nav a:hover,
+.guild-nav a.is-active { color: var(--guild-gold); }
+
+/* Бургер (лише на вузьких екранах) */
+.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.guild-burger {
+  display: none;
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.guild-burger::before,
+.guild-burger::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #fff;
+}
+.guild-burger::before { top: 14px; box-shadow: 0 6px 0 #fff; }
+.guild-burger::after { top: 26px; }
+
+.hall__wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 110px;
+}
+.hall__content { max-width: 520px; color: #fff; }
+.hall__eyebrow { display: block; margin-bottom: 10px; font-size: 12px; }
+.hall__content h1 {
+  margin-bottom: 22px;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ==========================================================
+   ФОРМА ВИКЛИКУ ЗАГОНУ
+   ========================================================== */
+.summons {
+  position: relative;
+  z-index: 3;
+  margin-top: -48px;
+}
+
+.summons__form {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(31, 43, 58, .15);
+}
+
+.summons__field {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 14px 22px;
+  border-right: 1px solid var(--line);
+}
+.summons__field span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--guild-ink);
+}
+.summons__field input,
+.summons__field select {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: 13px var(--font);
+  color: var(--guild-text);
+}
+.summons__field input:focus,
+.summons__field select:focus { outline: none; color: var(--guild-ink); }
+
+.summons__btn {
+  flex: none;
+  padding: 0 36px;
+  border: 0;
+  background: var(--guild-blue);
+  color: #fff;
+  font: 700 12px/1 var(--font);
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s;
+}
+.summons__btn:hover { background: var(--guild-ink); }
+
+/* ==========================================================
+   ПРО ГІЛЬДІЮ
+   ========================================================== */
+.guild-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);   /* колонки завжди 50/50, довгий вміст їх не розпирає */
+  margin-top: 70px;
+}
+
+.guild-about__media {
+  position: relative;
+  min-height: 480px;
+  background: var(--mist);
+}
+.guild-about__media > .fill-img { position: absolute; inset: 0; }
+
+.guild-about__boxes {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(240px, 60%);
+  z-index: 2;
+}
+
+.guild-hours {
+  padding: 22px 24px;
+  background: var(--guild-blue);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.guild-hours h3 { margin-bottom: 10px; font-size: 1.05rem; color: #fff; }
+.guild-hours strong { display: block; margin-top: 8px; font-weight: 700; }
+
+.dragon-alert {
+  padding: 14px 24px;
+  background: var(--guild-gold);
+  color: var(--guild-ink);
+}
+.dragon-alert strong {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.dragon-alert__phone { font-size: 1.05rem; font-weight: 700; }
+
+.guild-about__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+.guild-about__text {
+  padding: 56px 8% 40px 7%;
+  overflow-wrap: anywhere;          /* дуже довгі слова переносяться, а не розпирають колонку */
+}
+.guild-about__text h2 { margin-bottom: 18px; }
+.guild-about__text p + p { margin-top: 12px; }
+
+.guild-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--guild-gold);
+  color: var(--guild-ink);
+}
+.guild-stat { padding: 30px 20px 30px 7%; }
+.guild-stat + .guild-stat { padding-left: 20px; }
+.guild-stat strong {
+  display: block;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+.guild-stat span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   ПОСЛУГИ (КВЕСТИ)
+   ========================================================== */
+.quests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px 40px;
+}
+
+.quest { display: flex; align-items: flex-start; gap: 16px; }
+.quest__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  background: var(--parchment);
+  border-bottom: 3px solid var(--guild-blue);
+}
+.quest__icon img { width: 40px; height: 40px; }
+.quest h3 { margin-bottom: 6px; }
+.quest p { font-size: 13px; }
+
+.quest__more {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--guild-ink);
+  transition: color .2s;
+}
+.quest__more:hover { color: var(--guild-blue); }
+
+/* ==========================================================
+   ЗАГОНИ (КОМАНДА)
+   ========================================================== */
+.squads { padding: 20px 0 100px; }
+
+.squads__layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.squads__intro { padding-top: 50px; }
+.squads__intro h2 { margin-bottom: 14px; }
+.squads__intro p { margin-bottom: 24px; font-size: 13px; }
+
+.squads__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.squad { padding-bottom: 20px; background: var(--mist); }
+.squad__portrait { aspect-ratio: 3 / 3.6; overflow: hidden; }
+.squad__portrait .fill-img { object-position: center top; }
+
+.squad__plate {
+  position: relative;
+  margin: -34px 16px 0;
+  padding: 16px 12px 18px;
+  background: var(--guild-blue);
+  text-align: center;
+  color: #fff;
+}
+.squad__plate h3 { font-size: 15px; font-weight: 500; color: #fff; }
+.squad__role {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: .9;
+}
+.guild-social--plate { justify-content: center; }
+
+/* ==========================================================
+   АДАПТИВНІСТЬ
+   ========================================================== */
+
+/* Невеликі ноутбуки */
+@media (max-width: 1100px) {
+  .guild-nav ul { gap: 16px; }
+  .squads__layout { grid-template-columns: 240px 1fr; gap: 30px; }
+}
+
+/* Меню → бургер (довгий логотип + 6 пунктів не вміщаються раніше) */
+@media (max-width: 1000px) {
+  .guild-burger { display: block; }
+
+  .guild-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 6px 20px 20px;
+    background: rgba(31, 43, 58, .97);
+  }
+  .menu-toggle:checked ~ .guild-nav { display: block; }
+  .guild-nav ul { flex-direction: column; gap: 0; }
+  .guild-nav a { display: block; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+}
+
+/* Планшети: колонки складаються */
+@media (max-width: 900px) {
+  .summons__form { flex-wrap: wrap; }
+  .summons__field { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
+  .summons__btn { flex: 1 1 100%; padding: 18px; }
+
+  .guild-about { grid-template-columns: 1fr; margin-top: 50px; }
+  .guild-about__media { min-height: 0; display: flex; flex-direction: column; }
+  .guild-about__media > .fill-img { position: relative; inset: auto; height: 340px; }
+  .guild-about__boxes { position: static; transform: none; width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .dragon-alert { display: flex; flex-direction: column; justify-content: center; }
+  .guild-about__text { padding: 40px 24px 30px; }
+  .guild-stat,
+  .guild-stat + .guild-stat { padding: 26px 20px; }
+
+  .quests { grid-template-columns: repeat(2, 1fr); }
+
+  .squads__layout { grid-template-columns: 1fr; }
+  .squads__intro { padding-top: 0; }
+}
+
+/* Телефони */
+@media (max-width: 600px) {
+  .guild-section { padding: 60px 0; }
+
+  .guild-logo { font-size: .85rem; letter-spacing: .5px; }
+  .hall__wrap { padding-bottom: 90px; }
+
+  .summons__field { flex-basis: 100%; }
+
+  .guild-about__media > .fill-img { height: 260px; }
+  .guild-about__boxes { grid-template-columns: 1fr; }
+  .guild-stat,
+  .guild-stat + .guild-stat { padding: 20px 10px 20px 16px; }
+
+  .quests { grid-template-columns: 1fr; gap: 32px; }
+
+  .squads__list { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  .squads { padding-bottom: 70px; }
+}
